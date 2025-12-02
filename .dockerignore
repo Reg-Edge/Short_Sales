@@ -1,0 +1,42 @@
+# VCS & editor
+.git/
+.gitignore
+.vscode/
+.idea/
+.DS_Store
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.venv/
+env/
+venv/
+dist/
+build/
+.eggs/
+*.egg-info/
+
+# Logs
+logs/
+*.log
+
+# Env & secrets (DO NOT send to build)
+.env
+.env.*
+*.pem
+*.key
+*.crt
+
+# Local data that should not ship
+# (avoid accidentally sending a dev Chroma store)
+chroma_pdf_store/
+tmp/
+.cache/
+
+# Node (if any)
+node_modules/
+npm-debug.log*

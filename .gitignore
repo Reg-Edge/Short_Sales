@@ -1,0 +1,60 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+
+# Temp files & OS cruft
+*.tmp
+*.swp
+*.bak
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# App uploads / generated data
+validator_uploads/
+*.csv
+Output/
+*.out
+*.html
+
+# NOTE: we DO NOT ignore all PDFs globally because we want to keep the 3 seed PDFs.
+# If you still produce other PDFs you don't want committed, use a narrower pattern, e.g.:
+# /reports/**/*.pdf
+
+# Config / secrets
+config/secrets.json
+.env
+.env*
+*.key
+*.pem
+*.crt
+
+# Editor settings
+.vscode/
+.idea/
+*.code-workspace
+
+# Local Chroma stores (avoid committing dev artifacts)
+chroma_pdf_store/
+
+# --- Keep RAG seed PDFs tracked ---
+!rag_chatbot/cat/1.pdf
+!rag_chatbot/cat/2.pdf
+!rag_chatbot/cat/3.pdf
