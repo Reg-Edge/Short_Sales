@@ -21,6 +21,6 @@
    docker exec -i ss-pg-1 psql -U postgres -d app -v ON_ERROR_STOP=1 -f - < schema.sql 
 
    For # Windows 
-   Get-Content schema.sql | docker exec -i ss-pg-1 psql -U postgres -d app -v ON_ERROR_STOP=1    
+   Get-Content schema.sql | docker exec -i short_sales-pg-1 psql -U postgres -d app -v ON_ERROR_STOP=1    
    ```
 --- 
