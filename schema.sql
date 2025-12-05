@@ -1,18 +1,21 @@
-CREATE TABLE sales (
-    sale_id        INT PRIMARY KEY,      
-    customer_id    INT NOT NULL,         
-    product_id     INT NOT NULL,        
+
+-- 1) Drop any existing relation named sales/SALES in any schema
+DROP SCHEMA IF EXISTS short_sales CASCADE;
+CREATE SCHEMA short_sales;
+
+
+-- 3) Create your SALES table
+CREATE TABLE IF NOT EXISTS short_sales.sales (
+    sale_id        INT PRIMARY KEY,
+    customer_id    INT NOT NULL,
+    product_id     INT NOT NULL,
     quantity       INT NOT NULL,
     unit_price     DECIMAL(10, 2) NOT NULL,
     sale_date      DATE NOT NULL,
     created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
--- Create schema
-CREATE SCHEMA IF NOT EXISTS short_sales;
-
--- Fidessa Accounts (stub for view used by procedure)
+-- 4) Fidessa Accounts (stub for view used by procedure)
 CREATE TABLE IF NOT EXISTS short_sales.v_jds_fidessa_accounts (
     book_id              text PRIMARY KEY,
     primary_trader       text,
@@ -36,7 +39,7 @@ CREATE TABLE IF NOT EXISTS short_sales.v_jds_fidessa_accounts (
     net_pl_value_limit   text
 );
 
--- Event tables (shared layout)
+-- 5) Event tables
 CREATE TABLE IF NOT EXISTS short_sales.ss_fidessa_cancel (
     sourcesystem      varchar(10),
     type              char(25),
@@ -101,11 +104,10 @@ CREATE TABLE IF NOT EXISTS short_sales.ss_jdoe_routes (
     mquant            varchar(40),
     book              varchar(255),
     aggregation_unit  text,
-    capacity          varchar(255),
     uniqueid          varchar(255)
 );
 
--- SOD positions
+-- 6) SOD positions
 CREATE TABLE IF NOT EXISTS short_sales.ss_sod_positions (
     symbol            varchar(1020),
     aggregation_unit  text,
@@ -113,7 +115,7 @@ CREATE TABLE IF NOT EXISTS short_sales.ss_sod_positions (
     processing_date   date
 );
 
--- Staging positions (inferred columns from screenshots)
+-- 7) Staging positions
 CREATE TABLE IF NOT EXISTS short_sales.stg_fid_us_position (
     ip_rec_num                 bigint,
     book_primary_trader        varchar(255),
@@ -174,7 +176,7 @@ CREATE INDEX IF NOT EXISTS ix_stg_fid_us_position_book_code
 CREATE INDEX IF NOT EXISTS ix_stg_fid_us_position_instrument_code
     ON short_sales.stg_fid_us_position (instrument_code);
 
--- Procedure: populate SOD positions
+-- 8) Procedure: populate SOD positions
 CREATE OR REPLACE PROCEDURE short_sales.sp_ss_sod_positions()
 LANGUAGE plpgsql
 AS $proc$
@@ -204,5 +206,3 @@ BEGIN
     GROUP BY symbol, aggregation_unit, business_date;
 END;
 $proc$;
-
--- Usage:
