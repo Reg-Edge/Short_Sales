@@ -1,0 +1,12 @@
+# .gitignore
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+*.log
+*.bak
+*.backup
+*.swp
+*.tmp
+session-manager-plugin.pkg
+AWSCLIV2.pkg
