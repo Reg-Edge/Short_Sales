@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "29e34318ed60314d0263",
+  "position": {
+    "x": 0,
+    "y": 291.42857142857144,
+    "z": 8000,
+    "height": 157.14285714285714,
+    "width": 865.71428571428578,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "treemap",
+    "query": {
+      "queryState": {
+        "Group": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "SYMBOL"
+                }
+              },
+              "queryRef": "Intraday_Ledger.SYMBOL",
+              "nativeQueryRef": "SYMBOL",
+              "active": true
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "Total Exceptions"
+                }
+              },
+              "queryRef": "Intraday_Ledger.Total Exceptions",
+              "nativeQueryRef": "Total Exceptions"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

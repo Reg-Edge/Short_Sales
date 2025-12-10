@@ -1,0 +1,50 @@
+relationship 1ccaf89a-6e6f-4943-86bd-9dbfdcd4c0d0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ledger_2025-10-30.TIMESTAMP
+	toColumn: LocalDateTable_40f5d8c0-e772-40cf-8578-1b2d025270a6.Date
+
+relationship 5a00a7a3-711e-41b9-94bc-5471c21e416a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ledger_2025-10-30.PREV_TIMESTAMP
+	toColumn: LocalDateTable_817b0caa-224e-472b-a4b9-5f71382906f2.Date
+
+relationship 8b939358-bf23-4deb-8c2f-7684d6feffbe
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ledger_2025-10-30.NEXT_TIMESTAMP
+	toColumn: LocalDateTable_ef8121e7-e779-4c1a-8308-ff6f415bfb90.Date
+
+relationship a1a1f1cd-9ada-4ceb-b46e-657037727448
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ledger_2025-10-29.TIMESTAMP
+	toColumn: LocalDateTable_73df8ae1-0594-403f-b0d0-b34be8dd2cd3.Date
+
+relationship 200dcd67-c152-46a2-92eb-6a181857c372
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ledger_2025-10-29.PREV_TIMESTAMP
+	toColumn: LocalDateTable_83bd8299-be94-4c19-bf20-cebe39e3b344.Date
+
+relationship 1a435e2a-3d05-4044-ba0d-4e51c3d35037
+	joinOnDateBehavior: datePartOnly
+	fromColumn: ledger_2025-10-29.NEXT_TIMESTAMP
+	toColumn: LocalDateTable_c06aba4b-7426-4128-85d6-132b2c44dc99.Date
+
+relationship 1bbd5309-5943-40dc-9618-09bf7e070e56
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Intraday_Ledger.TIMESTAMP
+	toColumn: LocalDateTable_a257fc08-f37e-40d4-91c6-fbaa225ac1e5.Date
+
+relationship ec02e062-142e-4315-900e-670c5a555616
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Intraday_Ledger.PREV_TIMESTAMP
+	toColumn: LocalDateTable_7fdc1512-50a7-4fb8-8a0e-6ea4b558b855.Date
+
+relationship 2ae49327-1a3e-4e21-8704-e322218a6594
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Intraday_Ledger.NEXT_TIMESTAMP
+	toColumn: LocalDateTable_683ca6eb-025f-4c3f-a8f0-ed571abd6a84.Date
+
+relationship 8f06fa36-d910-4fd4-a5c3-15411a947d85
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Intraday_Ledger.BUSINESS_DATE
+	toColumn: LocalDateTable_b84c27a5-a292-4be4-800d-12a35f27c617.Date
+

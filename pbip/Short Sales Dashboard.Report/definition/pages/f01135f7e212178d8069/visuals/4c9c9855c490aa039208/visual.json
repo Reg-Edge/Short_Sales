@@ -1,0 +1,688 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "4c9c9855c490aa039208",
+  "position": {
+    "x": 0,
+    "y": 458.57142857142861,
+    "z": 9000,
+    "height": 261.42857142857144,
+    "width": 1280,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "SOURCESYSTEM"
+                }
+              },
+              "queryRef": "Intraday_Ledger.SOURCESYSTEM",
+              "nativeQueryRef": "SOURCESYSTEM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "TYPE"
+                }
+              },
+              "queryRef": "Intraday_Ledger.TYPE",
+              "nativeQueryRef": "TYPE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "TIMESTAMP"
+                }
+              },
+              "queryRef": "Intraday_Ledger.TIMESTAMP",
+              "nativeQueryRef": "TIMESTAMP"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "AGGREGATION_UNIT"
+                }
+              },
+              "queryRef": "Intraday_Ledger.AGGREGATION_UNIT",
+              "nativeQueryRef": "AGGREGATION_UNIT"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "SYMBOL"
+                }
+              },
+              "queryRef": "Intraday_Ledger.SYMBOL",
+              "nativeQueryRef": "SYMBOL"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "SIDE"
+                }
+              },
+              "queryRef": "Intraday_Ledger.SIDE",
+              "nativeQueryRef": "SIDE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "QUANTITY"
+                }
+              },
+              "queryRef": "Sum(Intraday_Ledger.QUANTITY)",
+              "nativeQueryRef": "QUANTITY"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "BOOK"
+                }
+              },
+              "queryRef": "Sum(Intraday_Ledger.BOOK)",
+              "nativeQueryRef": "BOOK"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "SOD"
+                }
+              },
+              "queryRef": "Sum(Intraday_Ledger.SOD)",
+              "nativeQueryRef": "SOD"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "CURR_POSITION"
+                }
+              },
+              "queryRef": "Sum(Intraday_Ledger.CURR_POSITION)",
+              "nativeQueryRef": "CURR_POSITION"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "BUSINESS_DATE"
+                }
+              },
+              "queryRef": "Intraday_Ledger.BUSINESS_DATE",
+              "nativeQueryRef": "BUSINESS_DATE"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "UNIQUEID"
+                }
+              },
+              "queryRef": "Intraday_Ledger.UNIQUEID",
+              "nativeQueryRef": "UNIQUEID"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "66.14285925407037D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Intraday_Ledger.BUSINESS_DATE.Variation.Date Hierarchy.Month"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Exceptions'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4bbbc7b9c6c591e6eea8",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "AGGREGATION_UNIT"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2e9768c1c1424a740cc7",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "BOOK"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dc34c1d07c1a98009469",
+        "ordinal": 2,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Intraday_Ledger"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "BUSINESS_DATE"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Day"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "a39fad9e5765d9a45e72",
+        "ordinal": 3,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Intraday_Ledger"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "BUSINESS_DATE"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Month"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "742b4f3823c7b0d38e09",
+        "ordinal": 4,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Intraday_Ledger"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "BUSINESS_DATE"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Quarter"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "fe86e59b7d018e326bed",
+        "ordinal": 5,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Intraday_Ledger"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "BUSINESS_DATE"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "48dd8421a85b21ba1070",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "CURR_POSITION"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "32050d72210d021cc12a",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "QUANTITY"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fd682f9028517e4290e0",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "SIDE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "de808800c28192d4e0da",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "SOD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "da664ab0e9e21ce27c4e",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "SOURCESYSTEM"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fbbb378f02cc98370950",
+        "ordinal": 11,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "SYMBOL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9dd62c02ec6b0060a77c",
+        "ordinal": 12,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Intraday_Ledger"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "TIMESTAMP"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Day"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "6a14f65169a0dc7b8b15",
+        "ordinal": 13,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Intraday_Ledger"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "TIMESTAMP"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Month"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "f8661372664bebb56bc0",
+        "ordinal": 14,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Intraday_Ledger"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "TIMESTAMP"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Quarter"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "3e7011a8234c30847229",
+        "ordinal": 15,
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Intraday_Ledger"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "TIMESTAMP"
+                  }
+                },
+                "Hierarchy": "Date Hierarchy"
+              }
+            },
+            "Level": "Year"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
+      },
+      {
+        "name": "965b1410265195a903b5",
+        "ordinal": 16,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "TYPE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "dd41e1bdce59158a6587",
+        "ordinal": 17,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "UNIQUEID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "89ec699b4cb7521913b3",
+        "ordinal": 18,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Intraday_Ledger"
+              }
+            },
+            "Property": "IS_EXCEPTION"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "i",
+              "Entity": "Intraday_Ledger",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "i"
+                          }
+                        },
+                        "Property": "IS_EXCEPTION"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "1L"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

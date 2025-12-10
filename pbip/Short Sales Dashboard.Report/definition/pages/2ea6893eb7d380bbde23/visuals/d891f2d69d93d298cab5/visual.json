@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "d891f2d69d93d298cab5",
+  "position": {
+    "x": 5.7142857142857144,
+    "y": 60.000000000000007,
+    "z": 0,
+    "height": 120.00000000000001,
+    "width": 227.14285714285717,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Intraday_Ledger"
+                    }
+                  },
+                  "Property": "Total Exceptions"
+                }
+              },
+              "queryRef": "Intraday_Ledger.Total Exceptions",
+              "nativeQueryRef": "Total Exceptions"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Intraday_Ledger"
+                  }
+                },
+                "Property": "Total Exceptions"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

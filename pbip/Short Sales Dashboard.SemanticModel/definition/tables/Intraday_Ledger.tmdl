@@ -1,0 +1,182 @@
+table Intraday_Ledger
+	lineageTag: c020239d-33d6-4c2b-9ded-7c332b7060e1
+
+	measure 'Total Exceptions' = SUM ( Intraday_Ledger[IS_EXCEPTION] )
+		formatString: 0
+		lineageTag: 15f02497-9b8f-4c33-9237-4df1b8e1fc80
+
+	measure 'Records in Ledger' = COUNTROWS ( Intraday_Ledger )
+		formatString: 0
+		lineageTag: 869e6765-df19-49a9-af31-5b0751e6a5ff
+
+	measure 'Exception %' = DIVIDE([Total Exceptions], [Records in Ledger])
+		lineageTag: fabfe913-60d6-45b5-bfff-56892bcf6af2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SOURCESYSTEM
+		dataType: string
+		lineageTag: 411e320e-8386-4c7b-afa0-6a6e2e22d9f7
+		summarizeBy: none
+		sourceColumn: SOURCESYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TYPE
+		dataType: string
+		lineageTag: 49a76942-d584-4cfc-8349-3116bb6915eb
+		summarizeBy: none
+		sourceColumn: TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIMESTAMP
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b1d81a3b-9b76-4088-a5f0-9e9c4b37db41
+		summarizeBy: none
+		sourceColumn: TIMESTAMP
+
+		variation Variation
+			isDefault
+			relationship: 1bbd5309-5943-40dc-9618-09bf7e070e56
+			defaultHierarchy: LocalDateTable_a257fc08-f37e-40d4-91c6-fbaa225ac1e5.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGGREGATION_UNIT
+		dataType: string
+		lineageTag: eca0757b-2da1-459d-9f7b-a2b19bd6d8b2
+		summarizeBy: none
+		sourceColumn: AGGREGATION_UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SYMBOL
+		dataType: string
+		lineageTag: 323b890f-2ba7-4c94-bcd3-4d76e981a2e3
+		summarizeBy: none
+		sourceColumn: SYMBOL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SIDE
+		dataType: string
+		lineageTag: b5616727-4e1d-4f2c-b0cc-cc0b635590fa
+		summarizeBy: none
+		sourceColumn: SIDE
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUANTITY
+		dataType: int64
+		formatString: 0
+		lineageTag: cc963673-3cb3-40fd-afe3-b1a9065bf8b4
+		summarizeBy: sum
+		sourceColumn: QUANTITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BOOK
+		dataType: int64
+		formatString: 0
+		lineageTag: 9fb3d74b-401c-42e7-8de6-d48640a4bd81
+		summarizeBy: sum
+		sourceColumn: BOOK
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOD
+		dataType: int64
+		formatString: 0
+		lineageTag: 98ffca67-9d50-4e98-8827-02d6478ba4d2
+		summarizeBy: sum
+		sourceColumn: SOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_POSITION
+		dataType: int64
+		formatString: 0
+		lineageTag: a9688ab6-4169-42b0-9d20-1a64161fc257
+		summarizeBy: sum
+		sourceColumn: CURR_POSITION
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIQUEID
+		dataType: string
+		lineageTag: 687b3192-f337-45b5-933f-c06bc7c85562
+		summarizeBy: none
+		sourceColumn: UNIQUEID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BUSINESS_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3873c16d-41a2-496d-add3-fa62f76d4dc2
+		summarizeBy: none
+		sourceColumn: BUSINESS_DATE
+
+		variation Variation
+			isDefault
+			relationship: 8f06fa36-d910-4fd4-a5c3-15411a947d85
+			defaultHierarchy: LocalDateTable_b84c27a5-a292-4be4-800d-12a35f27c617.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PREV_TIMESTAMP
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 414f3d96-94ed-49d7-9287-315e4673b9b8
+		summarizeBy: none
+		sourceColumn: PREV_TIMESTAMP
+
+		variation Variation
+			isDefault
+			relationship: ec02e062-142e-4315-900e-670c5a555616
+			defaultHierarchy: LocalDateTable_7fdc1512-50a7-4fb8-8a0e-6ea4b558b855.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEXT_TIMESTAMP
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7eb7ffba-8fdf-4296-9c76-d52f6490234a
+		summarizeBy: none
+		sourceColumn: NEXT_TIMESTAMP
+
+		variation Variation
+			isDefault
+			relationship: 2ae49327-1a3e-4e21-8704-e322218a6594
+			defaultHierarchy: LocalDateTable_683ca6eb-025f-4c3f-a8f0-ed571abd6a84.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_EXCEPTION
+		dataType: int64
+		formatString: 0
+		lineageTag: 75e0eb00-8007-4ce2-99fc-6c600760f3de
+		summarizeBy: sum
+		sourceColumn: IS_EXCEPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Intraday_Ledger = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"ledger_2025-10-30", #"ledger_2025-10-29"}),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"BUSINESS_DATE", type text}}),
+				    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Changed Type", {{"BUSINESS_DATE", type date}}, "en-US"),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"TIMESTAMP", type datetime}, {"QUANTITY", Int64.Type}, {"CURR_POSITION", Int64.Type}, {"SOD", Int64.Type}, {"IS_EXCEPTION", Int64.Type}, {"SOURCESYSTEM", type text}, {"AGGREGATION_UNIT", type text}, {"SYMBOL", type text}, {"TYPE", type text}})
+				in
+				    #"Changed Type1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

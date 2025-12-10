@@ -1,0 +1,158 @@
+table ledger_2025-10-29
+	lineageTag: 32aa03d8-9b16-4c44-b75d-50f20439db93
+
+	column SOURCESYSTEM
+		dataType: string
+		lineageTag: 7c7eb6e2-3e48-44ae-ac58-8fd29e224a02
+		summarizeBy: none
+		sourceColumn: SOURCESYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TYPE
+		dataType: string
+		lineageTag: e76b79d4-dfe1-412e-8a5a-f3771f506d74
+		summarizeBy: none
+		sourceColumn: TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TIMESTAMP
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1a800754-6914-41cb-b3b8-e9d44b24d260
+		summarizeBy: none
+		sourceColumn: TIMESTAMP
+
+		variation Variation
+			isDefault
+			relationship: a1a1f1cd-9ada-4ceb-b46e-657037727448
+			defaultHierarchy: LocalDateTable_73df8ae1-0594-403f-b0d0-b34be8dd2cd3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGGREGATION_UNIT
+		dataType: string
+		lineageTag: 8b9e2fae-a8d4-42ca-be50-3f87b9f18ab7
+		summarizeBy: none
+		sourceColumn: AGGREGATION_UNIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SYMBOL
+		dataType: string
+		lineageTag: c142e21a-9d67-41c7-a8df-8f2e768d6deb
+		summarizeBy: none
+		sourceColumn: SYMBOL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SIDE
+		dataType: string
+		lineageTag: 8b4b5c59-f44a-4295-bafe-42f3fb1facb1
+		summarizeBy: none
+		sourceColumn: SIDE
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUANTITY
+		dataType: int64
+		formatString: 0
+		lineageTag: 84cee889-9047-47af-99cb-05acd0f69a17
+		summarizeBy: sum
+		sourceColumn: QUANTITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column BOOK
+		dataType: int64
+		formatString: 0
+		lineageTag: be788f2c-7f6b-4438-a15b-1291e10c0521
+		summarizeBy: sum
+		sourceColumn: BOOK
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOD
+		dataType: int64
+		formatString: 0
+		lineageTag: d3150e08-5eb4-4c00-8df0-3a24be4066f0
+		summarizeBy: sum
+		sourceColumn: SOD
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURR_POSITION
+		dataType: int64
+		formatString: 0
+		lineageTag: 1622156e-3e4c-41ae-a3cc-6a856c92befe
+		summarizeBy: sum
+		sourceColumn: CURR_POSITION
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNIQUEID
+		dataType: string
+		lineageTag: 8a4f4956-ab72-4736-96e7-14edb6638f14
+		summarizeBy: none
+		sourceColumn: UNIQUEID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BUSINESS_DATE
+		dataType: string
+		lineageTag: 8a7c5f98-1865-4d0e-a0a9-fa7a16b27c5a
+		summarizeBy: none
+		sourceColumn: BUSINESS_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREV_TIMESTAMP
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: bff68940-bf53-47b7-b568-12b4717d5b03
+		summarizeBy: none
+		sourceColumn: PREV_TIMESTAMP
+
+		variation Variation
+			isDefault
+			relationship: 200dcd67-c152-46a2-92eb-6a181857c372
+			defaultHierarchy: LocalDateTable_83bd8299-be94-4c19-bf20-cebe39e3b344.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEXT_TIMESTAMP
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0754e9b5-4330-42b4-b6a4-08eb9824b424
+		summarizeBy: none
+		sourceColumn: NEXT_TIMESTAMP
+
+		variation Variation
+			isDefault
+			relationship: 1a435e2a-3d05-4044-ba0d-4e51c3d35037
+			defaultHierarchy: LocalDateTable_c06aba4b-7426-4128-85d6-132b2c44dc99.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_EXCEPTION
+		dataType: int64
+		formatString: 0
+		lineageTag: a8c6e41e-a5fb-4677-a04a-06f595223bd3
+		summarizeBy: sum
+		sourceColumn: IS_EXCEPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ledger_2025-10-29 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\mamta\OneDrive - RegEdge LLC\Documents\Data FIles\ledger_2025-10-29.csv"),[Delimiter=",", Columns=15, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"SOURCESYSTEM", type text}, {"TYPE", type text}, {"TIMESTAMP", type datetime}, {"AGGREGATION_UNIT", type text}, {"SYMBOL", type text}, {"SIDE", type text}, {"QUANTITY", Int64.Type}, {"BOOK", Int64.Type}, {"SOD", Int64.Type}, {"CURR_POSITION", Int64.Type}, {"UNIQUEID", type text}, {"BUSINESS_DATE", type text}, {"PREV_TIMESTAMP", type datetime}, {"NEXT_TIMESTAMP", type datetime}, {"IS_EXCEPTION", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

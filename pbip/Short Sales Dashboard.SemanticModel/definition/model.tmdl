@@ -1,0 +1,31 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-NZ
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["ledger_2025-10-30","ledger_2025-10-29","Intraday_Ledger"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table ledger_2025-10-30
+ref table DateTableTemplate_d3602e00-c6a4-4e3a-a54b-06d3d35c56ae
+ref table LocalDateTable_40f5d8c0-e772-40cf-8578-1b2d025270a6
+ref table LocalDateTable_817b0caa-224e-472b-a4b9-5f71382906f2
+ref table LocalDateTable_ef8121e7-e779-4c1a-8308-ff6f415bfb90
+ref table ledger_2025-10-29
+ref table LocalDateTable_73df8ae1-0594-403f-b0d0-b34be8dd2cd3
+ref table LocalDateTable_83bd8299-be94-4c19-bf20-cebe39e3b344
+ref table LocalDateTable_c06aba4b-7426-4128-85d6-132b2c44dc99
+ref table Intraday_Ledger
+ref table LocalDateTable_a257fc08-f37e-40d4-91c6-fbaa225ac1e5
+ref table LocalDateTable_7fdc1512-50a7-4fb8-8a0e-6ea4b558b855
+ref table LocalDateTable_683ca6eb-025f-4c3f-a8f0-ed571abd6a84
+ref table LocalDateTable_b84c27a5-a292-4be4-800d-12a35f27c617
+
+ref cultureInfo en-US
+
