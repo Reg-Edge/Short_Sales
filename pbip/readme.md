@@ -100,7 +100,7 @@ Exception % = DIVIDE([Total Exceptions], [Records in Ledger])
 **Purpose**: Point-in-time snapshot of short sales ledger for October 29, 2025.
 
 **Data Source**: CSV File
-- **Path**: `C:\Users\mamta\OneDrive - RegEdge LLC\Documents\Data FIles\ledger_2025-10-29.csv`
+- **Path**: `C:\Users\regedgedev\OneDrive - RegEdge LLC\Documents\Data FIles\ledger_2025-10-29.csv`
 - **Delimiter**: Comma
 - **Columns**: 15
 - **Encoding**: Windows-1252
@@ -108,7 +108,7 @@ Exception % = DIVIDE([Total Exceptions], [Records in Ledger])
 **M Query**:
 ```m
 let
-    Source = Csv.Document(File.Contents("C:\Users\mamta\OneDrive - RegEdge LLC\Documents\Data FIles\ledger_2025-10-29.csv"),[Delimiter=",", Columns=15, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+    Source = Csv.Document(File.Contents("C:\Users\regedgedev\OneDrive - RegEdge LLC\Documents\Data FIles\ledger_2025-10-29.csv"),[Delimiter=",", Columns=15, Encoding=1252, QuoteStyle=QuoteStyle.None]),
     #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
     #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"SOURCESYSTEM", type text}, {"TYPE", type text}, {"TIMESTAMP", type datetime}, {"AGGREGATION_UNIT", type text}, {"SYMBOL", type text}, {"SIDE", type text}, {"QUANTITY", Int64.Type}, {"BOOK", Int64.Type}, {"SOD", Int64.Type}, {"CURR_POSITION", Int64.Type}, {"UNIQUEID", type text}, {"BUSINESS_DATE", type text}, {"PREV_TIMESTAMP", type datetime}, {"NEXT_TIMESTAMP", type datetime}, {"IS_EXCEPTION", Int64.Type}})
 in
@@ -144,7 +144,7 @@ in
 **Purpose**: Point-in-time snapshot of short sales ledger for October 30, 2025.
 
 **Data Source**: CSV File
-- **Path**: `C:\Users\mamta\OneDrive - RegEdge LLC\Documents\Data FIles\ledger_2025-10-30.csv`
+- **Path**: `C:\Users\regedgedev\OneDrive - RegEdge LLC\Documents\Data FIles\ledger_2025-10-30.csv`
 - **Delimiter**: Comma
 - **Columns**: 15
 - **Encoding**: Windows-1252
@@ -152,7 +152,7 @@ in
 **M Query**:
 ```m
 let
-    Source = Csv.Document(File.Contents("C:\Users\mamta\OneDrive - RegEdge LLC\Documents\Data FIles\ledger_2025-10-30.csv"),[Delimiter=",", Columns=15, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+    Source = Csv.Document(File.Contents("C:\Users\regedgedev\OneDrive - RegEdge LLC\Documents\Data FIles\ledger_2025-10-30.csv"),[Delimiter=",", Columns=15, Encoding=1252, QuoteStyle=QuoteStyle.None]),
     #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
     #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"SOURCESYSTEM", type text}, {"TYPE", type text}, {"TIMESTAMP", type datetime}, {"AGGREGATION_UNIT", type text}, {"SYMBOL", type text}, {"SIDE", type text}, {"QUANTITY", Int64.Type}, {"BOOK", Int64.Type}, {"SOD", Int64.Type}, {"CURR_POSITION", Int64.Type}, {"UNIQUEID", type text}, {"BUSINESS_DATE", type text}, {"PREV_TIMESTAMP", type datetime}, {"NEXT_TIMESTAMP", type datetime}, {"IS_EXCEPTION", Int64.Type}})
 in
