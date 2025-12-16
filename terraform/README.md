@@ -70,22 +70,39 @@ This project provisions a Free Tier–friendly Windows Server 2022 EC2 instance 
 
 2. **Deploy:**
    ```sh
-   terraform init && terraform apply -auto-approve
+   terraform init -reconfigure && terraform apply -auto-approve --profile re_prabhakaran
    # Or, with OpenTofu:
-   tofu init && tofu apply -auto-approve
+   tofu init -reconfigure && tofu apply -auto-approve --profile re_prabhakaran
+   ```
+   Note: The `--profile re_prabhakaran` flag is optional if `AWS_PROFILE=re_prabhakaran` is already set in your environment.
+
+3. **Set Administrator password (optional, if needed):**
+   ```sh
+   aws ssm send-command \
+     --instance-ids <instance-id> \
+     --document-name AWS-RunPowerShellScript \
+     --parameters '{"commands":["net user Administrator \"Your$ecureP@ss\" /active:yes"]}' \
+     --profile re_prabhakaran
    ```
 
-3. **RDP via SSM port-forward:**
+4. **RDP via SSM port-forward:**
    ```sh
-   aws ssm start-session --target <instance-id> --document-name AWS-StartPortForwardingSession --parameters "localPortNumber=55678,portNumber=3389"
+   aws ssm start-session \
+     --target <instance-id> \
+     --document-name AWS-StartPortForwardingSession \
+     --parameters '{"localPortNumber":["55678"],"portNumber":["3389"]}' \
+     --profile re_prabhakaran
    ```
-   - Connect Windows App (RDP) to `localhost:55678`.
+   - Keep this terminal open while connected to RDP.
+   - Connect Windows App (RDP) to `localhost:55678` with username `Administrator` and your password.
 
-4. **Destroy when done:**
+5. **Destroy when done:**
+
+5. **Destroy when done:**
    ```sh
-   terraform destroy -auto-approve
+   terraform destroy -auto-approve --profile re_prabhakaran
    # Or, with OpenTofu:
-   tofu destroy -auto-approve
+   tofu destroy -auto-approve --profile re_prabhakaran
    ```
    - **Stay within Free Tier!**
 
