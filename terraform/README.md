@@ -60,11 +60,13 @@ This project provisions a Free Tier–friendly Windows Server 2022 EC2 instance 
 
 ## B) Deploy Windows + Power BI Desktop
 
-1. **Configure AWS CLI:**
+1. **Configure AWS CLI (named profile):**
    ```sh
-   aws configure
+   aws configure --profile re_prabhakaran
    ```
    - Use IAM admin keys (not root). [Best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/root-user-best-practices.html)
+
+- **Account:** 3005-5311-2090 — this Terraform configuration will operate against this AWS account when using the `re_prabhakaran` profile.
 
 2. **Deploy:**
    ```sh
